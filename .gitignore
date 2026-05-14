@@ -1,0 +1,35 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+
+# 환경변수 / 시크릿
+.env
+.env.*
+
+# Claude Code
+.claude/settings.local.json
+
+# 문서 (개발 메모, 구조 분석 등)
+*.md
+!README.md
+
+# 테스트 결과 / 캡처
+tests/fixtures/html/*.recon.html
+tests/fixtures/recon-reports/
+playwright-report/
+test-results/
+.playwright/
+
+# API 쿼리 덤프
+agoda_query_dump.txt
+
+# 배포 zip
+*.zip
+
+# 이미지
+*.png
+*.jpg
+*.jpeg
+*.gif
+!public/icons/*.png

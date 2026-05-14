@@ -1,0 +1,27 @@
+{
+  "name": "awaodori-hotel-watch",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Chrome extension that watches Tokushima hotel availability for Awa Odori dates across Agoda, Hotels Combined, and Trip.com, with notifications when booking opens or prices drop.",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "watch": "node scripts/build.mjs --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "biome check src tests scripts",
+    "format": "biome format --write src tests scripts",
+    "recon:setup": "playwright install chromium",
+    "recon": "playwright install chromium && node scripts/recon.mjs"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/chrome": "^0.0.287",
+    "@types/node": "^22.10.5",
+    "esbuild": "^0.24.2",
+    "playwright": "^1.49.1",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Awaodori Hotel Watch",
+  "version": "0.1.0",
+  "description": "도쿠시마 아와오도리 기간 호텔 매물을 아고다·호텔스컴바인·트립닷컴에서 자동 감시하고 예약 오픈/저가 매물 알림을 보냅니다.",
+  "permissions": ["alarms", "storage", "notifications", "declarativeNetRequestWithHostAccess"],
+  "host_permissions": [
+    "https://*.agoda.com/*",
+    "https://*.agoda.co.kr/*",
+    "https://*.trip.com/*",
+    "https://api.telegram.org/*"
+  ],
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
+  "action": {
+    "default_title": "Awaodori Hotel Watch"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
