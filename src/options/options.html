@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>아와오도리 호텔 알림 — 설정</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <header>
+    <h1>아와오도리 호텔 알림</h1>
+    <p class="subtitle">아고다 · 트립닷컴 자동 감시</p>
+  </header>
+
+  <main>
+    <section class="monitor-toggle">
+      <label class="toggle-label">
+        <input id="enabled" type="checkbox" />
+        <span class="toggle-text">감시 중</span>
+      </label>
+    </section>
+
+    <section>
+      <h2>감시 대상</h2>
+      <div id="targetList"></div>
+      <button id="showAddForm" class="btn-add">+ 감시 추가</button>
+      <div id="addForm" class="add-form hidden">
+        <label>이름 <input id="newName" type="text" placeholder="예: 아와오도리 2027" /></label>
+        <label>체크인 <input id="newCheckIn" type="date" /></label>
+        <label>체크아웃 <input id="newCheckOut" type="date" /></label>
+        <div class="form-row">
+          <label>성인 <input id="newAdults" type="number" value="2" min="1" max="10" /></label>
+          <label>객실 <input id="newRooms" type="number" value="1" min="1" max="10" /></label>
+        </div>
+        <div class="form-actions">
+          <button id="saveTarget">추가</button>
+          <button id="cancelTarget" class="btn-cancel">취소</button>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>알림 채널</h2>
+      <label><input id="chromeNotification" type="checkbox" /> Windows 알림</label>
+      <label><input id="telegramEnabled" type="checkbox" /> 텔레그램 알림</label>
+      <div id="telegramConnected" class="sub-status hidden">
+        <span class="connected-badge">연결됨</span>
+        <button id="telegramEdit" class="btn-edit">수정</button>
+      </div>
+      <div id="telegramSettings" class="sub-settings hidden">
+        <label>Bot Token <input id="telegramBotToken" type="text" placeholder="123456:ABC-DEF..." /></label>
+        <label>Chat ID <input id="telegramChatId" type="text" placeholder="예: 8862795128" /></label>
+        <button id="telegramSave" class="btn-save-token">저장</button>
+      </div>
+    </section>
+
+    <div id="lastPollInfo" class="last-poll"></div>
+
+    <pre id="status"></pre>
+  </main>
+
+  <script src="options.js" type="module"></script>
+</body>
+</html>

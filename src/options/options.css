@@ -1,0 +1,408 @@
+* { box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+  background: #fafafa;
+  color: #1f1f1f;
+  margin: 0 auto;
+  padding: 24px;
+  min-width: 480px;
+  max-width: 720px;
+  width: 100%;
+}
+
+header h1 {
+  margin: 0 0 4px 0;
+  font-size: 22px;
+}
+
+.subtitle {
+  margin: 0 0 24px 0;
+  color: #666;
+  font-size: 13px;
+}
+
+section {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+
+section h2 {
+  margin: 0 0 12px 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+label input[type="text"],
+label input[type="date"],
+label input[type="number"] {
+  flex: 1;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 13px;
+}
+
+label input[type="checkbox"] {
+  margin-right: 4px;
+}
+
+details {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed #e5e5e5;
+}
+
+summary {
+  cursor: pointer;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+button {
+  flex: 1;
+  background: #1f1f1f;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #333;
+}
+
+#runNow {
+  background: #fff;
+  color: #1f1f1f;
+  border: 1px solid #1f1f1f;
+}
+
+.kakao-section {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed #e5e5e5;
+}
+
+.kakao-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.kakao-status {
+  font-size: 12px;
+  color: #666;
+}
+
+.kakao-status.connected {
+  color: #16a34a;
+}
+
+.kakao-setup {
+  margin-top: 8px;
+}
+
+.btn-kakao {
+  flex: none;
+  background: #fee500;
+  color: #1f1f1f;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.btn-kakao:hover {
+  background: #fdd800;
+}
+
+.btn-kakao-logout {
+  flex: none;
+  background: #fff;
+  color: #666;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 13px;
+  cursor: pointer;
+  margin-top: 8px;
+  margin-left: 8px;
+}
+
+.monitor-toggle {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.toggle-label input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+
+.toggle-text {
+  color: #dc2626;
+}
+
+.toggle-text.on {
+  color: #16a34a;
+}
+
+.btn-add {
+  flex: none;
+  background: #fff;
+  color: #1f1f1f;
+  border: 1px dashed #bbb;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 13px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-add:hover {
+  background: #f4f4f4;
+  border-color: #888;
+}
+
+.add-form {
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  padding: 14px;
+  background: #fafafa;
+}
+
+.add-form label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  white-space: nowrap;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+
+.form-row label {
+  flex: 1;
+}
+
+.form-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.form-actions button {
+  flex: 1;
+  padding: 8px;
+  font-size: 13px;
+}
+
+.btn-cancel {
+  background: #fff !important;
+  color: #666 !important;
+  border: 1px solid #d4d4d4 !important;
+}
+
+.btn-cancel:hover {
+  background: #f4f4f4 !important;
+}
+
+.last-poll {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.last-poll.warning {
+  color: #dc2626;
+  font-weight: 500;
+}
+
+.target-card {
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  background: #fafafa;
+}
+
+.target-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.target-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.target-toggle input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+}
+
+.target-name {
+  flex: 1;
+}
+
+.target-status {
+  font-size: 11px;
+  font-weight: 600;
+  color: #dc2626;
+  min-width: 24px;
+}
+
+.target-status.on {
+  color: #16a34a;
+}
+
+.target-details {
+  font-size: 12px;
+  color: #888;
+  margin-top: 4px;
+  padding-left: 24px;
+}
+
+#targetList.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.btn-remove {
+  flex: none;
+  background: none;
+  color: #999;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.btn-remove:hover {
+  color: #dc2626;
+  border-color: #dc2626;
+  background: #fef2f2;
+}
+
+.sub-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  padding-left: 28px;
+}
+
+.connected-badge {
+  font-size: 12px;
+  color: #16a34a;
+  font-weight: 500;
+}
+
+.btn-edit {
+  flex: none;
+  background: none;
+  color: #999;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.btn-edit:hover {
+  color: #1f1f1f;
+  border-color: #999;
+}
+
+.sub-settings {
+  margin-top: 8px;
+  padding: 10px 14px;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+.sub-settings label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  margin-bottom: 6px;
+  white-space: nowrap;
+}
+
+.sub-settings input[type="text"] {
+  flex: 1;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 13px;
+}
+
+.btn-save-token {
+  margin-top: 8px;
+  padding: 6px 16px;
+  font-size: 13px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#status {
+  background: #f4f4f4;
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 12px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  min-height: 40px;
+}
