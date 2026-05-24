@@ -1,0 +1,29 @@
+{
+  "name": "Mixed: agoda notYetOpen, others tracking",
+  "description": "한 사이트만 미오픈이고 나머지는 추적 중. 미오픈 감지가 우선이므로 빠른 폴링.",
+  "cfg": {
+    "notYetOpenMinutes": 30,
+    "trackingMinutes": 1440,
+    "scraperSuspectBaseMinutes": 60,
+    "scraperSuspectMaxMinutes": 720
+  },
+  "state": {
+    "sites": {
+      "agoda": {
+        "kind": "notYetOpen",
+        "since": "2026-05-20T00:00:00Z"
+      },
+      "trip": {
+        "kind": "tracking",
+        "since": "2026-05-20T00:00:00Z",
+        "lastSeenCount": 5
+      }
+    },
+    "lastListings": {
+      "agoda": {},
+      "trip": {}
+    },
+    "lastRound": null
+  },
+  "expected": 30
+}

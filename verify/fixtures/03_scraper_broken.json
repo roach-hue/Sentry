@@ -1,0 +1,74 @@
+{
+  "name": "Scraper broken — both real and sentinel empty",
+  "description": "Real returns 0 AND sentinel returns 0 — this is the unambiguous signal that something is wrong with the scraper (sentinel a year back should always have inventory). Expect scraperSuspect state, first failure alert.",
+  "initialState": {
+    "sites": {
+      "agoda": {
+        "kind": "unknown"
+      },
+      "trip": {
+        "kind": "unknown"
+      }
+    },
+    "lastListings": {
+      "agoda": {},
+      "trip": {}
+    },
+    "lastRound": null
+  },
+  "alert": {
+    "lowInventoryAt": 2,
+    "alertCooldownSec": 0
+  },
+  "rounds": [
+    {
+      "startedAt": "2026-06-01T00:00:00Z",
+      "completedAt": "2026-06-01T00:01:00Z",
+      "perSite": {
+        "agoda": {
+          "real": {
+            "site": "agoda",
+            "spec": {
+              "destination": "Tokushima",
+              "checkIn": "2027-08-12",
+              "checkOut": "2027-08-15",
+              "adults": 2,
+              "rooms": 1
+            },
+            "fetchedAt": "2026-06-01T00:00:30Z",
+            "listings": [],
+            "error": null
+          },
+          "sentinel": {
+            "site": "agoda",
+            "spec": {
+              "destination": "Tokushima",
+              "checkIn": "2026-08-12",
+              "checkOut": "2026-08-15",
+              "adults": 2,
+              "rooms": 1
+            },
+            "fetchedAt": "2026-06-01T00:00:45Z",
+            "listings": [],
+            "error": null
+          }
+        }
+      }
+    }
+  ],
+  "expected": {
+    "finalSiteKinds": {
+      "agoda": "scraperSuspect"
+    },
+    "consecutiveFailures": {
+      "agoda": 1
+    },
+    "events": [
+      {
+        "kind": "scraperSuspect",
+        "site": "agoda",
+        "urgency": "medium"
+      }
+    ]
+  }
+}

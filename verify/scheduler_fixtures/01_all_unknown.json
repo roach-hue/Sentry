@@ -1,0 +1,26 @@
+{
+  "name": "All sites unknown — first ever poll",
+  "description": "초기 상태. 어떤 사이트도 폴링한 적 없음. 빠른 폴링이 적절.",
+  "cfg": {
+    "notYetOpenMinutes": 30,
+    "trackingMinutes": 1440,
+    "scraperSuspectBaseMinutes": 60,
+    "scraperSuspectMaxMinutes": 720
+  },
+  "state": {
+    "sites": {
+      "agoda": {
+        "kind": "unknown"
+      },
+      "trip": {
+        "kind": "unknown"
+      }
+    },
+    "lastListings": {
+      "agoda": {},
+      "trip": {}
+    },
+    "lastRound": null
+  },
+  "expected": 30
+}

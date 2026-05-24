@@ -1,0 +1,30 @@
+{
+  "name": "justOpened + tracking mix — tracking cadence",
+  "description": "방금 오픈된 사이트가 있어도, 데이터를 이미 받은 상태라면 24시간 주기로 충분.",
+  "cfg": {
+    "notYetOpenMinutes": 30,
+    "trackingMinutes": 1440,
+    "scraperSuspectBaseMinutes": 60,
+    "scraperSuspectMaxMinutes": 720
+  },
+  "state": {
+    "sites": {
+      "agoda": {
+        "kind": "justOpened",
+        "detectedAt": "2026-08-15T12:00:00Z",
+        "openingListings": []
+      },
+      "trip": {
+        "kind": "tracking",
+        "since": "2026-08-15T12:00:00Z",
+        "lastSeenCount": 7
+      }
+    },
+    "lastListings": {
+      "agoda": {},
+      "trip": {}
+    },
+    "lastRound": null
+  },
+  "expected": 1440
+}

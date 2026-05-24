@@ -1,0 +1,70 @@
+{
+  "name": "Scraper broken — silent on second consecutive failure",
+  "description": "Already in scraperSuspect with consecutiveFailures=1. Another failure round. Expect consecutiveFailures=2 but NO event (do not spam during outage).",
+  "initialState": {
+    "sites": {
+      "agoda": {
+        "kind": "scraperSuspect",
+        "since": "2026-06-01T00:01:00Z",
+        "consecutiveFailures": 1
+      },
+      "trip": {
+        "kind": "unknown"
+      }
+    },
+    "lastListings": {
+      "agoda": {},
+      "trip": {}
+    },
+    "lastRound": null
+  },
+  "alert": {
+    "lowInventoryAt": 2,
+    "alertCooldownSec": 0
+  },
+  "rounds": [
+    {
+      "startedAt": "2026-06-02T00:00:00Z",
+      "completedAt": "2026-06-02T00:01:00Z",
+      "perSite": {
+        "agoda": {
+          "real": {
+            "site": "agoda",
+            "spec": {
+              "destination": "Tokushima",
+              "checkIn": "2027-08-12",
+              "checkOut": "2027-08-15",
+              "adults": 2,
+              "rooms": 1
+            },
+            "fetchedAt": "2026-06-02T00:00:30Z",
+            "listings": [],
+            "error": null
+          },
+          "sentinel": {
+            "site": "agoda",
+            "spec": {
+              "destination": "Tokushima",
+              "checkIn": "2026-08-12",
+              "checkOut": "2026-08-15",
+              "adults": 2,
+              "rooms": 1
+            },
+            "fetchedAt": "2026-06-02T00:00:45Z",
+            "listings": [],
+            "error": null
+          }
+        }
+      }
+    }
+  ],
+  "expected": {
+    "finalSiteKinds": {
+      "agoda": "scraperSuspect"
+    },
+    "consecutiveFailures": {
+      "agoda": 2
+    },
+    "events": []
+  }
+}

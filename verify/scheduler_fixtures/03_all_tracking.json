@@ -1,0 +1,30 @@
+{
+  "name": "All tracking — normal monitoring cadence",
+  "description": "모든 사이트가 정상 추적 중. 가격 변동은 시간 단위로 미세하므로 24시간 주기.",
+  "cfg": {
+    "notYetOpenMinutes": 30,
+    "trackingMinutes": 1440,
+    "scraperSuspectBaseMinutes": 60,
+    "scraperSuspectMaxMinutes": 720
+  },
+  "state": {
+    "sites": {
+      "agoda": {
+        "kind": "tracking",
+        "since": "2026-08-15T00:00:00Z",
+        "lastSeenCount": 12
+      },
+      "trip": {
+        "kind": "tracking",
+        "since": "2026-08-15T00:00:00Z",
+        "lastSeenCount": 10
+      }
+    },
+    "lastListings": {
+      "agoda": {},
+      "trip": {}
+    },
+    "lastRound": null
+  },
+  "expected": 1440
+}

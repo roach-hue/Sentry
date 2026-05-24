@@ -1,0 +1,30 @@
+{
+  "name": "All scraperSuspect with failures=1 — first backoff step",
+  "description": "모든 사이트 깨짐, 첫 실패. base × 2^0 = 60분.",
+  "cfg": {
+    "notYetOpenMinutes": 30,
+    "trackingMinutes": 1440,
+    "scraperSuspectBaseMinutes": 60,
+    "scraperSuspectMaxMinutes": 720
+  },
+  "state": {
+    "sites": {
+      "agoda": {
+        "kind": "scraperSuspect",
+        "since": "2026-05-20T00:00:00Z",
+        "consecutiveFailures": 1
+      },
+      "trip": {
+        "kind": "scraperSuspect",
+        "since": "2026-05-20T00:00:00Z",
+        "consecutiveFailures": 1
+      }
+    },
+    "lastListings": {
+      "agoda": {},
+      "trip": {}
+    },
+    "lastRound": null
+  },
+  "expected": 60
+}

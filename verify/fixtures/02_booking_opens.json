@@ -1,0 +1,112 @@
+{
+  "name": "Booking opens — the killer feature",
+  "description": "Previously notYetOpen. Now real returns listings. Expect justOpened state and bookingOpened critical event.",
+  "initialState": {
+    "sites": {
+      "agoda": {
+        "kind": "notYetOpen",
+        "since": "2026-05-20T00:00:00Z"
+      },
+      "trip": {
+        "kind": "unknown"
+      }
+    },
+    "lastListings": {
+      "agoda": {},
+      "trip": {}
+    },
+    "lastRound": null
+  },
+  "alert": {
+    "lowInventoryAt": 2,
+    "alertCooldownSec": 0
+  },
+  "rounds": [
+    {
+      "startedAt": "2026-08-15T00:00:00Z",
+      "completedAt": "2026-08-15T00:01:00Z",
+      "perSite": {
+        "agoda": {
+          "real": {
+            "site": "agoda",
+            "spec": {
+              "destination": "Tokushima",
+              "checkIn": "2027-08-12",
+              "checkOut": "2027-08-15",
+              "adults": 2,
+              "rooms": 1
+            },
+            "fetchedAt": "2026-08-15T00:00:30Z",
+            "listings": [
+              {
+                "id": "tok-grand",
+                "name": "Tokushima Grand Hotel",
+                "normalizedName": "tokushima grand",
+                "pricePerNightJpy": 35000,
+                "totalPriceJpy": 105000,
+                "roomsRemaining": 4,
+                "breakfastIncluded": true,
+                "freeCancellation": false,
+                "url": "https://example.com/grand"
+              },
+              {
+                "id": "tok-kairaku",
+                "name": "Tokushima Kairaku",
+                "normalizedName": "tokushima kairaku",
+                "pricePerNightJpy": 28000,
+                "totalPriceJpy": 84000,
+                "roomsRemaining": 2,
+                "breakfastIncluded": false,
+                "freeCancellation": true,
+                "url": null
+              }
+            ],
+            "error": null
+          },
+          "sentinel": {
+            "site": "agoda",
+            "spec": {
+              "destination": "Tokushima",
+              "checkIn": "2026-08-12",
+              "checkOut": "2026-08-15",
+              "adults": 2,
+              "rooms": 1
+            },
+            "fetchedAt": "2026-08-15T00:00:45Z",
+            "listings": [
+              {
+                "id": "tok-grand-2026",
+                "name": "Tokushima Grand Hotel",
+                "normalizedName": "tokushima grand",
+                "pricePerNightJpy": 18000,
+                "totalPriceJpy": 54000,
+                "roomsRemaining": null,
+                "breakfastIncluded": null,
+                "freeCancellation": null,
+                "url": null
+              }
+            ],
+            "error": null
+          }
+        }
+      }
+    }
+  ],
+  "expected": {
+    "finalSiteKinds": {
+      "agoda": "justOpened"
+    },
+    "events": [
+      {
+        "kind": "bookingOpened",
+        "site": "agoda",
+        "urgency": "critical"
+      },
+      {
+        "kind": "lowInventory",
+        "site": "agoda",
+        "urgency": "high"
+      }
+    ]
+  }
+}

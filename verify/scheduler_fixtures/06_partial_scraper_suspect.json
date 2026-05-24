@@ -1,0 +1,30 @@
+{
+  "name": "Partial scraperSuspect — not all broken, normal cadence",
+  "description": "한 사이트만 깨졌고 둘은 정상 추적. 일부가 작동하므로 정상 주기 유지.",
+  "cfg": {
+    "notYetOpenMinutes": 30,
+    "trackingMinutes": 1440,
+    "scraperSuspectBaseMinutes": 60,
+    "scraperSuspectMaxMinutes": 720
+  },
+  "state": {
+    "sites": {
+      "agoda": {
+        "kind": "scraperSuspect",
+        "since": "2026-05-20T00:00:00Z",
+        "consecutiveFailures": 5
+      },
+      "trip": {
+        "kind": "tracking",
+        "since": "2026-05-20T00:00:00Z",
+        "lastSeenCount": 10
+      }
+    },
+    "lastListings": {
+      "agoda": {},
+      "trip": {}
+    },
+    "lastRound": null
+  },
+  "expected": 1440
+}

@@ -1,0 +1,30 @@
+{
+  "name": "All scraperSuspect with high failures — backoff capped",
+  "description": "오랜 실패 누적. base × 2^9 = 30720 이지만 max 720에 걸려 720 반환.",
+  "cfg": {
+    "notYetOpenMinutes": 30,
+    "trackingMinutes": 1440,
+    "scraperSuspectBaseMinutes": 60,
+    "scraperSuspectMaxMinutes": 720
+  },
+  "state": {
+    "sites": {
+      "agoda": {
+        "kind": "scraperSuspect",
+        "since": "2026-05-20T00:00:00Z",
+        "consecutiveFailures": 10
+      },
+      "trip": {
+        "kind": "scraperSuspect",
+        "since": "2026-05-20T00:00:00Z",
+        "consecutiveFailures": 8
+      }
+    },
+    "lastListings": {
+      "agoda": {},
+      "trip": {}
+    },
+    "lastRound": null
+  },
+  "expected": 720
+}
