@@ -77,7 +77,7 @@ chrome.notifications.onClicked.addListener(async (notifId) => {
   // notifId 형식: "awaodori:{site}:{targetName}:{timestamp}" 또는 "test-{timestamp}"
   const parts = notifId.split(':');
   const site = parts.length >= 2 ? parts[1] : null;
-  const targetName = parts.length >= 3 ? decodeURIComponent(parts[2]) : null;
+  const targetName = parts.length >= 3 ? decodeURIComponent(parts[2]!) : null;
 
   let url: string | null = null;
   if (targetName) {

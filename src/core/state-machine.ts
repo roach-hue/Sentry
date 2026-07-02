@@ -87,7 +87,27 @@ function stepSite(
     if (sentinel.error !== null || sentinel.listings.length === 0) {
       return toScraperSuspect(siteId, prevState, prevListings, now, targetName);
     }
-    // 센티넬엔 결과 있고 real만 0건 → 단순히 아직 예약 미오픈.
+    // 센티넬엔 결과 있고 real만 0건 — 이전에 매물이 있었으면 매진, 없었으면 미오픈.
+    const hadListings =
+      prevState.kind === 'tracking' ||
+      prevState.kind === 'justOpened' ||
+      prevState.kind === 'soldOut';
+    if (hadListings) {
+      const events: NotificationEvent[] = [];
+      if (prevState.kind !== 'soldOut') {
+        events.push({
+          kind: 'soldOut',
+          site: siteId,
+          targetName,
+          urgency: 'low',
+        });
+      }
+      return {
+        nextState: { kind: 'soldOut', since: now },
+        nextListings: prevListings,
+        events,
+      };
+    }
     if (prevState.kind === 'notYetOpen') {
       return { nextState: prevState, nextListings: prevListings, events: [] };
     }
@@ -104,6 +124,7 @@ function stepSite(
     prevState.kind === 'notYetOpen' ||
     prevState.kind === 'unknown' ||
     prevState.kind === 'scraperSuspect';
+  const wasSoldOut = prevState.kind === 'soldOut';
 
   // 헤드라인 이벤트 — 직전에 "닫혀있다"고 확정된 상태에서 방금 열렸을 때만 발사.
   // 진짜 notYetOpen → 열림 전이에서만 동작한다. "unknown"이나 "scraperSuspect"
@@ -155,6 +176,21 @@ function stepSite(
         detectedAt: now,
         openingListings: real.listings.slice(0, 10),
       },
+      nextListings,
+      events,
+    };
+  }
+
+  if (wasSoldOut) {
+    events.push({
+      kind: 'newHotelFound',
+      site: siteId,
+      targetName,
+      newListings: real.listings.slice(0, 5),
+      urgency: 'high',
+    });
+    return {
+      nextState: { kind: 'tracking', since: now, lastSeenCount: real.listings.length },
       nextListings,
       events,
     };
