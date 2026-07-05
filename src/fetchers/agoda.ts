@@ -28,6 +28,7 @@ export class AgodaFetcher implements SiteFetcher {
         );
       }
       const json = await response.json();
+
       const properties = json?.data?.citySearch?.properties;
       if (!Array.isArray(properties)) {
         return errorResult(spec, fetchedAt, {

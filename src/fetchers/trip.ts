@@ -110,7 +110,7 @@ function hotelToListing(h: any, nights: number, spec: SearchSpec): Listing | nul
   const hotelInfo = h?.hotelInfo;
   if (!hotelInfo) return null;
 
-  if (hotelInfo.statusInfo?.status === 0) return null;
+  if (hotelInfo.statusInfo?.status !== 1) return null;
 
   const name: unknown = hotelInfo.nameInfo?.name;
   if (typeof name !== 'string' || !name) return null;
